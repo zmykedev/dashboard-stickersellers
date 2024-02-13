@@ -43,11 +43,11 @@ export default function ResetPassword() {
       .catch((error) => setFailed(`Failed to reset your password: ${error.message}`))
   }
 
-  useEffect(() => {
-    if (!token) {
-      navigate('/recovery')
-    }
-  }, [token, navigate])
+  // useEffect(() => {
+  //   if (!token) {
+  //     navigate('/recovery')
+  //   }
+  // }, [token, navigate])
 
   return (
     <main className='mx-auto w-full max-w-md p-6'>
