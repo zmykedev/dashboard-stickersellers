@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useSearchParams } from 'react-router-dom'
 import clsx from 'clsx'
 
@@ -12,7 +12,7 @@ interface ResetPasswordTypes {
 }
 
 export default function ResetPassword() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [searchParams] = useSearchParams('')
   const token = searchParams.get('recovery_token') as string
   const [success, setSuccess] = useState('')
