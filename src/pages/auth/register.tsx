@@ -10,10 +10,8 @@ import { Alert, Button, TextField } from '@/components/ui-react-aria'
 import { IdentifierData, IdentifierQuery } from './types'
 
 interface RegisterTypes {
-  email: string
   password: string
-  id: string
-  username: string
+  uuid: string
 }
 
 export default function Register() {
@@ -85,9 +83,7 @@ export default function Register() {
     }
 
     const dataToSubmit = {
-      id: responseData.data.uuid, // Usa la propiedad correcta para 'id' si es diferente
-      username: responseData.data.username,
-      email: responseData.data.email,
+      uuid: responseData.data.uuid, // Usa la propiedad correcta para 'id' si es diferente
       password: password, // Usa el estado 'password'
     }
 
