@@ -9,6 +9,7 @@ import { focusRing } from '../utils'
 
 export interface ButtonProps extends RACButtonProps {
   variant?: 'primary' | 'secondary' | 'destructive' | 'icon'
+  disabled?: boolean
 }
 
 const button = tv({
