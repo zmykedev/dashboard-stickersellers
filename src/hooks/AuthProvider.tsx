@@ -44,6 +44,19 @@ export function AuthProvider({ children }: { children?: ReactNode }) {
     navigate('/')
   }
 
+  // const register = async () => {
+  //   try {
+  //     const response = await auth.signup(email, password)
+  //     if (response) {
+  //       // Opcional: Iniciar sesión automáticamente después del registro
+  //       login()
+  //     }
+  //   } catch (error) {
+  //     console.error('Error registering user:', error)
+  //     throw error
+  //   }
+  // }
+
   // Clear stored cookies and set false for loggedIn state.
   const logout = () => {
     user

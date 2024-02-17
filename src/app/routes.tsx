@@ -14,7 +14,7 @@ export const AppRoutes = () => {
     {
       element: <AuthLayout />,
       children: [
-        { path: 'register', element: <Register /> },
+        { path: 'register/:uuid', element: <Register /> },
         { path: 'login', element: <Login /> },
         { path: 'recovery', element: <Recovery /> },
         { path: 'reset-password', element: <ResetPassword /> },

@@ -21,13 +21,23 @@ export interface TextFieldProps extends AriaTextFieldProps {
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  onChange?: (value: string) => void
 }
 
-export function TextField({ label, description, errorMessage, ...props }: TextFieldProps) {
+export function TextField({
+  label,
+  description,
+  errorMessage,
+  onChange,
+  ...props
+}: TextFieldProps) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e.target.value)
+  }
   return (
     <AriaTextField {...props} className={ctrp(props.className, 'flex flex-col gap-1')}>
       {label && <Label>{label}</Label>}
-      <Input className={inputStyles} />
+      <Input className={inputStyles} onChange={handleChange} />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </AriaTextField>
