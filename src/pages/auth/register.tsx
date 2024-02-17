@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -6,8 +5,8 @@ import ClipLoader from 'react-spinners/ClipLoader' // Importa el spinner que des
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 import { Alert, Button, TextField } from '@/components/ui-react-aria'
-import { useAuthentication } from '@/hooks/AuthProvider'
 
+// import { useAuthentication } from '@/hooks/AuthProvider'
 import { IdentifierData, IdentifierQuery } from './types'
 
 interface RegisterTypes {
@@ -20,22 +19,17 @@ interface RegisterTypes {
 export default function Register() {
   const navigate = useNavigate()
   const { uuid } = useParams()
-  const { login, loggedOut } = useAuthentication()
+  // const { login, loggedOut } = useAuthentication()
   const [failed, setFailed] = useState<string | null>()
   const [success, setSuccess] = useState<string | null>()
   const [password, setPassword] = useState('')
 
   const {
-    register,
     handleSubmit,
     // formState: { errors, isSubmitting },
   } = useForm<IdentifierData>()
 
-  const {
-    data: responseData,
-    error,
-    isLoading,
-  } = useQuery<IdentifierQuery>({
+  const { data: responseData, isLoading } = useQuery<IdentifierQuery>({
     queryKey: ['obtenerUsuario', { uuid }],
     queryFn: async () => {
       const response = await fetch(
